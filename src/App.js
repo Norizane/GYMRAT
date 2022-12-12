@@ -5,6 +5,17 @@ import Account from "./components/pages/Account";
 import { Route , Routes,} from "react-router-dom";
 import {AuthContextProvider} from "./context/AuthContext";
 import Protected from "./components/Protected";
+import AnimCursor from "./components/elements/AnimatedCursor";
+
+
+
+
+
+
+
+
+
+
 
 
 const App = () => {
@@ -27,6 +38,7 @@ const App = () => {
 
                 </Routes>
             </AuthContextProvider>
+            <AnimCursor />
         </div>
     );
 };

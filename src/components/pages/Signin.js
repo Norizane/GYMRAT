@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
 import GoogleButton from 'react-google-button'
-// import icon from '../../images/gymraticon.png'
+import Typewriter from "typewriter-effect";
 import bgPhto from '../../images/bg_photo.jpg'
 import {UseAuth} from "../../context/AuthContext";
 import {useNavigate} from "react-router-dom";
@@ -23,33 +23,58 @@ const Singin = () => {
     },[user]);
 
     return(
-        <div className="grid grid-cols-1 sm:grid-cols-2 h-screen w-full">
-           
-           <div className='hidden sm:block'>
-               <img className='w-full h-full object-cover' src={bgPhto} alt=""/>
-           </div>
-            <div className='bg-slate-800 flex flex-col justify-center '>
-            <form className='max-w-[400px] w-full mx-auto bg-white p-4 rounded '>
-                <div>
-                <h2 className='font-SCode text-4xl font-bold text-center py-6'>GYMRAT</h2>
-                {/*<img className='w-20 h-20 ml-10' src={icon} alt=""/>*/}
-                </div>
-                <div className='flex flex-col py-2'>
-                    <label className='font-SCode'>Username</label>
-                    <input className='border p-2' type="text"/>
-                </div>
+        <div className='w-full h-screen flex circle'>
+            <div className=' flex justify-evenly items-center m-auto   sm:max-w-[900px] '>
+                {/*<div className='w-full h-[650px] hidden md:block'>*/}
+                {/*    <img className='w-full h-full object-cover' src={bgPhto} alt=""/>*/}
+                {/*</div>*/}
+                <div className=' flex flex-col justify-center '>
+                    <form className=' max-w-[400px] w-full mx-auto  p-8 '>
+                        <div>
 
-                <div className='flex flex-col py-2'>
-                    <label className='font-SCode'>Password</label>
-                    <input className='border p-2' type="password"/>
+                            <p
+                                className={"text-4xl xl:text-5xl text-center font-SCode text-neutral-300 mb-10"}>
+                                <Typewriter
+                                    options={{
+                                        // deleteSpeed: 100,
+                                        loop: false,
+                                        delay: 100,
+                                    }}
+                                    onInit={(typewriter) => {
+                                        typewriter
+                                            .typeString("GYM RAT")
+                                            // .pauseFor(1000)
+                                            // // .deleteAll()
+                                            // .pauseFor(300)
+                                            .start();
+                                    }}
+                                />
+                            </p>
+
+
+                            {/*<h2 className='font-SCode text-4xl font-bold text-center py-6 text-white'>GYMRAT</h2>*/}
+                            {/*<img className='w-20 h-20 ml-10' src={icon} alt=""/>*/}
+                        </div>
+                        <div className='flex flex-col py-2'>
+                            <label className='font-SCode text-neutral-300'>Username</label>
+                            <input className='border p-2 rounded mt-2 bg-neutral-300' type="text"/>
+                        </div>
+
+                        <div className='flex flex-col py-2'>
+                            <label className='font-SCode text-neutral-300'>Password</label>
+                            <input className='border p-2 rounded mt-2 bg-neutral-300' type="password"/>
+                        </div>
+                        <button
+                            className=' mt-5 w-full text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2'>Sing
+                            In
+                        </button>
+                        <div className='flex justify-center mt-5'>
+                            <GoogleButton
+                                onClick={handleGoogleSignIn}
+                            />
+                        </div>
+                    </form>
                 </div>
-                <button className=' mt-5 w-full text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2'>Sing In</button>
-                <div className='flex justify-center mt-5'>
-                    <GoogleButton
-                        onClick={handleGoogleSignIn}
-                    />
-                </div>
-            </form>
             </div>
         </div>
     )
