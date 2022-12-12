@@ -2,8 +2,7 @@ import React, {useState} from "react";
 import {UseAuth} from "../../context/AuthContext";
 import Preloader from "../elements/Preloader";
 import Style from "../../style.css";
-// import {DragDropContext, Droppable , Draggable} from "react-beautiful-dnd";
-import Monday from '../pages/Days/Monday'
+import {Navigate} from "react-router-dom";
 
 const Home = () =>{
     const {logOut} = UseAuth();
@@ -15,6 +14,38 @@ const Home = () =>{
             console.log(error);
         }
     };
+
+    const [goToMonday, setGoToMonday] = React.useState(false);
+    const [goToTuesday, setGoToTuesday] = React.useState(false);
+    const [goToWednesday, setGoToWednesday] = React.useState(false);
+    const [goToThursday, setGoToThursday] = React.useState(false);
+    const [goToFriday, setGoToFriday] = React.useState(false);
+    const [goToSaturday, setGoToSaturday] = React.useState(false);
+    const [goToSunday, setGoToSunday] = React.useState(false);
+    if(goToMonday){
+        return <Navigate to="/Monday"/>
+    }
+    if(goToTuesday){
+        return <Navigate to="/Tuesday"/>
+    }
+    if(goToWednesday){
+        return <Navigate to="/Wednesday"/>
+    }
+    if(goToThursday){
+        return <Navigate to="/Thursday"/>
+    }
+    if(goToFriday){
+        return <Navigate to="/Friday"/>
+    }
+    if(goToSaturday){
+        return <Navigate to="/Saturday"/>
+    }
+    if(goToSunday){
+        return <Navigate to="/Sunday"/>
+    }
+
+
+
 
 
 
@@ -36,37 +67,16 @@ const Home = () =>{
                         <div>
                         <ul className='text-3xl text-slate-600 '>
                             <li className='py-4 flex-col flex'>
-                                <button className='hover:text-emerald-500'>Monday</button>
-                                <button className='hover:text-emerald-500'>Tuesday</button>
-                                <button className='hover:text-emerald-500'>Wednesday</button>
-                                <button className='hover:text-emerald-500'>Thursday</button>
-                                <button className='hover:text-emerald-500'>Friday</button>
-                                <button className='hover:text-emerald-500'>Saturday</button>
-                                <button className='hover:text-emerald-500'>Sunday</button>
+                                <button onClick={() => setGoToMonday(true)} className='hover:text-emerald-500'>Monday</button>
+                                <button onClick={() => setGoToTuesday(true)} className='hover:text-emerald-500'>Tuesday</button>
+                                <button onClick={() => setGoToWednesday(true)} className='hover:text-emerald-500'>Wednesday</button>
+                                <button onClick={() => setGoToThursday(true)} className='hover:text-emerald-500'>Thursday</button>
+                                <button onClick={() => setGoToFriday(true)} className='hover:text-emerald-500'>Friday</button>
+                                <button onClick={() => setGoToSaturday(true)} className='hover:text-emerald-500'>Saturday</button>
+                                <button onClick={() => setGoToSunday(true)} className='hover:text-emerald-500'>Sunday</button>
                             </li>
                         </ul>
 
-                        {/*<DragDropContext >*/}
-                        {/*    <Droppable droppableId='Plans'>*/}
-                        {/*        {(provided) => (*/}
-                        {/*            <ul className='text-emerald-500 ml-4 ' {...provided.droppableProps} ref={provided.innerRef}>*/}
-                        {/*                {Conteiners.map(({id, PlanName},index) => {*/}
-                        {/*                    return (*/}
-                        {/*                        <Draggable key={id} draggableId={id} index={index}>*/}
-                        {/*                            {(provided) => (*/}
-                        {/*                        <li className='text-3xl ' {...provided.draggableProps} {...provided.dragHandleProps}  ref={provided.innerRef}>*/}
-
-                        {/*                                <p>{PlanName}</p>*/}
-
-                        {/*                        </li>*/}
-                        {/*                            )}*/}
-                        {/*                        </Draggable>*/}
-                        {/*                    );*/}
-                        {/*                })}*/}
-                        {/*            </ul>*/}
-                        {/*        )}*/}
-                        {/*    </Droppable>*/}
-                        {/*</DragDropContext>*/}
                         </div>
                         <div className="text-emerald-500 material-symbols-outlined ">timer</div>
                     </div>
