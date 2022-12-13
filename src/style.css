@@ -4,9 +4,14 @@
     /*width: 100vw;*/
     /*height: 100vh;*/
 }
-.circle {
+.circle_main {
     /*width: 650px;*/
     /*  height: 650px;*/
     /*  background: rgb(0,212,255);*/
     background: rgb(8,30,82);
     background: radial-gradient(circle, rgba(8,30,82,1) 50%, rgba(162,180,242,1) 100%);}
+
+.circle_Monday{
+background: rgb(0,107,29);
+    background: radial-gradient(circle, rgba(0,107,29,1) 50%, rgba(220,228,255,1) 100%);
+}

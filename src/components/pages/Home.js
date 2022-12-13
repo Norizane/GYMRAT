@@ -3,6 +3,9 @@ import {UseAuth} from "../../context/AuthContext";
 import Preloader from "../elements/Preloader";
 import Style from "../../style.css";
 import {Navigate} from "react-router-dom";
+import {motion} from "framer-motion";
+
+
 
 const Home = () =>{
     const {logOut} = UseAuth();
@@ -15,6 +18,9 @@ const Home = () =>{
         }
     };
 
+    const [goToStopWach, setGoToStopWach] = React.useState(false);
+    const [goToAccount, setGoToAccount] = React.useState(false);
+    const [goToGymExercises, setGoToGymExercises] = React.useState(false);
     const [goToMonday, setGoToMonday] = React.useState(false);
     const [goToTuesday, setGoToTuesday] = React.useState(false);
     const [goToWednesday, setGoToWednesday] = React.useState(false);
@@ -25,23 +31,41 @@ const Home = () =>{
     if(goToMonday){
         return <Navigate to="/Monday"/>
     }
+
     if(goToTuesday){
         return <Navigate to="/Tuesday"/>
     }
+
     if(goToWednesday){
         return <Navigate to="/Wednesday"/>
     }
+
     if(goToThursday){
         return <Navigate to="/Thursday"/>
     }
+
     if(goToFriday){
         return <Navigate to="/Friday"/>
     }
+
     if(goToSaturday){
         return <Navigate to="/Saturday"/>
     }
+
     if(goToSunday){
         return <Navigate to="/Sunday"/>
+    }
+
+    if(goToStopWach){
+        return <Navigate to="/StopWach"/>
+    }
+
+    if(goToAccount){
+        return <Navigate to="/Account"/>
+    }
+
+    if(goToGymExercises){
+        return <Navigate to="/GymExercises"/>
     }
 
 
@@ -55,32 +79,53 @@ const Home = () =>{
             <Preloader/>
             <div className='app-conteiner '>
                 <div
-                    className=" w-full h-screen circle bg-cover bg-center flex flex-col justify-center items-center ">
+                    className=" w-full h-screen circle_main bg-cover bg-center flex flex-col justify-center items-center ">
 
-                        <div className='text-emerald-500 text-2xl mb-2 '>GYM RAT</div>
-                        <div className='  justify-center '>
+                    <div className='text-emerald-500 text-2xl mb-2 '>GYM RAT</div>
+                    <div className='  justify-center '>
 
-                        <button onClick={handleSignOut} className='text-orange-600 material-symbols-outlined '>Logout</button>
+                        <button onClick={handleSignOut} className='text-orange-600 material-symbols-outlined '>Logout
+                        </button>
                     </div>
                     <div className="w-full h-full flex  justify-evenly items-center backdrop-blur-lg">
-                        <div className="text-emerald-500 material-symbols-outlined ">person</div>
+                        <div onClick={() => setGoToAccount(true)}
+                             className="text-emerald-500 material-symbols-outlined ">person
+                        </div>
                         <div>
-                        <ul className='text-3xl text-slate-600 '>
-                            <li className='py-4 flex-col flex'>
-                                <button onClick={() => setGoToMonday(true)} className='hover:text-emerald-500'>Monday</button>
-                                <button onClick={() => setGoToTuesday(true)} className='hover:text-emerald-500'>Tuesday</button>
-                                <button onClick={() => setGoToWednesday(true)} className='hover:text-emerald-500'>Wednesday</button>
-                                <button onClick={() => setGoToThursday(true)} className='hover:text-emerald-500'>Thursday</button>
-                                <button onClick={() => setGoToFriday(true)} className='hover:text-emerald-500'>Friday</button>
-                                <button onClick={() => setGoToSaturday(true)} className='hover:text-emerald-500'>Saturday</button>
-                                <button onClick={() => setGoToSunday(true)} className='hover:text-emerald-500'>Sunday</button>
-                            </li>
-                        </ul>
+                            <ul className='text-3xl text-slate-600 '>
+                                <li className='py-4 flex-col flex'>
+                                    <button onClick={() => setGoToMonday(true)}
+                                            className='hover:text-emerald-500'>Monday
+                                    </button>
+                                    <button onClick={() => setGoToTuesday(true)}
+                                            className='hover:text-emerald-500'>Tuesday
+                                    </button>
+                                    <button onClick={() => setGoToWednesday(true)}
+                                            className='hover:text-emerald-500'>Wednesday
+                                    </button>
+                                    <button onClick={() => setGoToThursday(true)}
+                                            className='hover:text-emerald-500'>Thursday
+                                    </button>
+                                    <button onClick={() => setGoToFriday(true)}
+                                            className='hover:text-emerald-500'>Friday
+                                    </button>
+                                    <button onClick={() => setGoToSaturday(true)}
+                                            className='hover:text-emerald-500'>Saturday
+                                    </button>
+                                    <button onClick={() => setGoToSunday(true)}
+                                            className='hover:text-emerald-500'>Sunday
+                                    </button>
+                                </li>
+                            </ul>
 
                         </div>
-                        <div className="text-emerald-500 material-symbols-outlined ">timer</div>
+                        <div onClick={() => setGoToStopWach(true)}
+                             className="text-emerald-500 material-symbols-outlined ">timer
+                        </div>
                     </div>
-                    <div className="text-emerald-500 material-symbols-outlined mb-8 ">fitness_center</div>
+                    <div onClick={() => setGoToGymExercises(true)}
+                         className="text-emerald-500 material-symbols-outlined mb-8 ">fitness_center
+                    </div>
                 </div>
             </div>
 
