@@ -23,11 +23,8 @@ const Singin = () => {
     },[user]);
 
     return(
-        <div className='w-full h-screen flex circle'>
+        <div className='w-full h-screen flex circle_main'>
             <div className=' flex justify-evenly items-center m-auto   sm:max-w-[900px] '>
-                {/*<div className='w-full h-[650px] hidden md:block'>*/}
-                {/*    <img className='w-full h-full object-cover' src={bgPhto} alt=""/>*/}
-                {/*</div>*/}
                 <div className=' flex flex-col justify-center '>
                     <form className=' max-w-[400px] w-full mx-auto  p-8 '>
                         <div>
